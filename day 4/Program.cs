@@ -17,7 +17,7 @@ namespace day_4
 
         public static int Part1(string path)
         {
-            var lines = File.ReadAllLines("data.txt");
+            var lines = File.ReadAllLines(path);
             var count = 0;
              foreach (var line in lines)
              {
@@ -36,7 +36,7 @@ namespace day_4
         }
         public static int Part2(string path)
         {
-            var lines = File.ReadAllLines("data.txt");
+            var lines = File.ReadAllLines(path);
             var count = 0;
              foreach (var line in lines)
              {
