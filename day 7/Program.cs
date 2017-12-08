@@ -53,6 +53,10 @@ namespace day_7
             root.CalculateWeights();
 
             var unbalanced = root.GetUnbalancedProgram();
+
+            var properWeight = unbalanced.Parent.ChildPrograms.Where ( x=> x.Name != unbalanced.Name).First().Weight;
+
+            Console.WriteLine(unbalanced.OwnWeight - (unbalanced.Weight - properWeight));
         }
 
 
@@ -87,8 +91,14 @@ namespace day_7
             public Programm GetUnbalancedProgram(){
 
                 var unbalancedChild = ChildPrograms.Where( x=> !x.AreChildBalanced).SingleOrDefault();
-                if(unbalancedChild == null) return this;
-                
+                if(unbalancedChild == null)
+                {
+                    var distinctWeights = ChildPrograms.Select( x=> x.Weight).Distinct();
+
+                    var wrongWeight = distinctWeights.Where( x=> ChildPrograms.Count( y=> y.Weight == x) == 1).Single();
+
+                    return ChildPrograms.Single(x => x.Weight == wrongWeight);
+                }
                 return unbalancedChild.GetUnbalancedProgram();
             }
             public override string ToString(){
