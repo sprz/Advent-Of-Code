@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/day 4/day 4.csproj"
+                "${workspaceFolder}/day 5/day 5.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
