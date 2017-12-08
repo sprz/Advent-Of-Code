@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "day 5", "day 5\day 5.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "day 6", "day 6\day 6.csproj", "{41E995A5-D4B0-4CCF-A68D-19EA63E6D905}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "day 7", "day 7\day 7.csproj", "{B43C52D0-570B-48D5-87E8-94B09B532CE4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -114,5 +116,17 @@ Global
 		{41E995A5-D4B0-4CCF-A68D-19EA63E6D905}.Release|x64.Build.0 = Release|x64
 		{41E995A5-D4B0-4CCF-A68D-19EA63E6D905}.Release|x86.ActiveCfg = Release|x86
 		{41E995A5-D4B0-4CCF-A68D-19EA63E6D905}.Release|x86.Build.0 = Release|x86
+		{B43C52D0-570B-48D5-87E8-94B09B532CE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B43C52D0-570B-48D5-87E8-94B09B532CE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B43C52D0-570B-48D5-87E8-94B09B532CE4}.Debug|x64.ActiveCfg = Debug|x64
+		{B43C52D0-570B-48D5-87E8-94B09B532CE4}.Debug|x64.Build.0 = Debug|x64
+		{B43C52D0-570B-48D5-87E8-94B09B532CE4}.Debug|x86.ActiveCfg = Debug|x86
+		{B43C52D0-570B-48D5-87E8-94B09B532CE4}.Debug|x86.Build.0 = Debug|x86
+		{B43C52D0-570B-48D5-87E8-94B09B532CE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B43C52D0-570B-48D5-87E8-94B09B532CE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B43C52D0-570B-48D5-87E8-94B09B532CE4}.Release|x64.ActiveCfg = Release|x64
+		{B43C52D0-570B-48D5-87E8-94B09B532CE4}.Release|x64.Build.0 = Release|x64
+		{B43C52D0-570B-48D5-87E8-94B09B532CE4}.Release|x86.ActiveCfg = Release|x86
+		{B43C52D0-570B-48D5-87E8-94B09B532CE4}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 EndGlobal
