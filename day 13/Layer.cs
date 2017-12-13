@@ -6,7 +6,7 @@ namespace day_13
     {  
         public int LayerNo {get;set;}
         public int Range {get;set;}
-        public int CurrentState {get;set;}
+        public int CurrentState {get;set;} = 0;
         private int _direction = 1;
 
         public int LayerSeverity { get { return LayerNo * Range;} }

@@ -17,11 +17,19 @@ namespace day_13
                 var splitted = line.Split(":").Select(x=> Convert.ToInt16(x)).ToArray();
                 firewall.AddLayer(splitted[0],splitted[1]);
             }
-            firewall.CreateRestLayers();
-
-            firewall.SendPacket();
 
             
+            while(!firewall.DoesPacketPass())
+            {
+                firewall.SendPacket(new Packet());
+                firewall.GoOnePicosecond();
+            }
+            
+            var passedPacket = firewall.GetPassedPacket();
+
+            Console.WriteLine("[Part 2]: Delay: " + passedPacket.Delay);
         }
+
+        // 3850353 - too high;
     }
 }
