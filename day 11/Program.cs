@@ -20,14 +20,20 @@ namespace day_11
             var directions = File.ReadAllText("data.txt").Split(",");
 
             Point currentPos = new Point();
-            
+            var maxDist = 0;
+
             foreach(var direction in directions)
             {
                 currentPos = dict[direction](currentPos);
+
+                var dist = DistToStart(currentPos);
+                if(maxDist < dist)
+                maxDist = dist;
             }
 
             currentPos = new Point(currentPos.Y,currentPos.X);
             Console.WriteLine("Dist = " + DistToStart(currentPos));
+            Console.WriteLine("Furthest he ever got: "+ maxDist);
 
         }
 
