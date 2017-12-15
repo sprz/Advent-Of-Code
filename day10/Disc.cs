@@ -44,6 +44,23 @@ namespace day10
             _skipSize++;
         }
 
+        internal string GetHash()
+        {
+            var outputNumbers = new List<int>();
+            for(int i=0;i<16;i++)
+                {
+                    var number = data.Skip(16*i).Take(16).Select(x=> x.Value).Aggregate((x,next) => x^next);
+                    outputNumbers.Add(number);
+                }
+
+                var outputHash = "";
+
+                foreach(var number in outputNumbers)
+                    outputHash +=  number.ToString("X2");
+
+                return outputHash.ToLower();
+        }
+
         public void Part1(){
             Console.WriteLine("Part1 = " + data[0]*data[1]);
         }
