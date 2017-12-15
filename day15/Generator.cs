@@ -5,7 +5,7 @@ namespace day15
     internal class Generator
     {
         private int _factor;
-        
+        private int _mod;
         private BigInteger _currentVal;
         public BigInteger CurrentVal
         {
@@ -14,10 +14,11 @@ namespace day15
         }
         
 
-        public Generator(int value,int factor)
+        public Generator(int value,int factor,int mod)
         {
             this.CurrentVal = value;
             this._factor = factor;
+            this._mod = mod;
         }
 
         internal BigInteger GetNextVal()
@@ -27,7 +28,10 @@ namespace day15
             
             CurrentVal = newVal % 2147483647;
             
-            return CurrentVal;
+            
+
+
+            return CurrentVal % _mod == 0 ? CurrentVal : GetNextVal();
         }
     }
 }
