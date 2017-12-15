@@ -19,6 +19,8 @@ namespace day14
             string.Join("",x.Select( y=> HexToBinary(y+"")))
             );
 
+            Console.WriteLine("PART 1 - "+ gridsValues.Select( x=> x.Count( y=> y=='1')).Sum());
+
 
         }
 
