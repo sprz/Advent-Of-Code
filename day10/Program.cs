@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace day10
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -46,7 +46,6 @@ namespace day10
 
             var hash =  discPart2.GetHash();
 
-            Console.WriteLine(String.Format("{0} -> {1}",input,hash));
 
 
             return hash;
