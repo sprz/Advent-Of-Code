@@ -9,21 +9,26 @@ namespace day19
         static void Main(string[] args)
         {
             var lines = System.IO.File.ReadAllLines("data.txt").ToList();
-           Console.WriteLine("part1: " + part1(lines));
+           Console.WriteLine("part1: " + part1(lines, true));
+           Console.WriteLine("part2: " + part1(lines, false));
         }
 
-        static string part1(List<string> lines)
+        static object part1(List<string> lines, bool part1)
         {
             var xPos = lines[0].IndexOf("|");
             var yPos = 0;
             bool canContinue = true;
             var direction = Direction.Down;
-            var output = "";
+            var counter = 0;
+            var letters = "";
             while(canContinue)
             {
                 //printCurrentPos(lines,xPos,yPos, direction);
                 var currentSign = lines[yPos][xPos];
-                if(currentSign == '+')
+                
+                if(currentSign == ' ')
+                    break;
+                else if(currentSign == '+')
                 {
                     if(direction == Direction.Down || direction == Direction.Up)
                     {
@@ -37,10 +42,6 @@ namespace day19
                         else if(right != ' ')
                         {
                             direction = Direction.Right;
-                        }
-                        else
-                        {
-
                         }
                     }
                     else
@@ -56,15 +57,11 @@ namespace day19
                         {
                             direction = Direction.Down;
                         }
-                        else
-                        {
-
-                        }
                     }
                 }
-                else if (currentSign != '|' && currentSign != '-' && currentSign != ' ')
+                else if (currentSign != '|' && currentSign != '-')
                 {
-                       output +=currentSign;
+                       letters +=currentSign;
                 }
                 
                 if(direction == Direction.Down)
@@ -77,8 +74,16 @@ namespace day19
                     xPos--;
                     
                 if(xPos >= lines.Count || xPos < 0 || yPos >=lines[0].Length || yPos <0)
-                    return output;
+                {
+                    break;
+                }
+                counter ++;
             }
+            
+            if(part1) 
+                return letters;
+            else 
+                return counter -1;
 
             return "";
         }
