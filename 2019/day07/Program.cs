@@ -10,12 +10,11 @@ namespace day07
         {
             var text = System.IO.File.ReadAllText("data.txt");
             Console.WriteLine(part1(text));
-            // Console.WriteLine(part2(text));
+            Console.WriteLine(part2(text));
         }
 
         static int part1(string text)
         {
-            //text= "3,23,3,24,1002,24,10,24,1002,23,-1,23,101,5,23,23,1,24,23,23,4,23,99,0,0";
             var maxAmplifierOutput = 0 ;
             var ampSignal = "";
             for(int i = 0; i <5;i++)
@@ -39,6 +38,48 @@ namespace day07
 
                                 if(maxAmplifierOutput < aplifierEOutput)
                                 maxAmplifierOutput  = aplifierEOutput;
+                            }
+                        }
+                    }
+                }
+            }
+            return maxAmplifierOutput;
+        }
+        
+        static int part2(string text)
+        {
+            text = "3,52,1001,52,-5,52,3,53,1,52,56,54,1007,54,5,55,1005,55,26,1001,54,-5,54,1105,1,12,1,53,54,53,1008,54,0,55,1001,55,1,55,2,53,55,53,4,53,1001,56,-1,56,1005,56,6,99,0,0,0,0,10";
+            var maxAmplifierOutput = 0 ;
+            var ampSignal = "";
+            for(int i = 5; i <10;i++)
+            {
+                for(int j = 5; j <10;j++)
+                {
+                    for(int k = 5; k <10;k++)
+                    {                        
+                        for(int l = 5; l <10;l++)
+                        {
+                            for(int m = 5; m <10;m++)
+                            {
+                                var phaseSettingSequence = String.Format($"{i}{j}{k}{l}{m}");
+                                if(phaseSettingSequence.GroupBy( x=> x).Any( x=> x.Count() > 1))
+                                continue;;
+
+                                var input = 0;
+
+                                for(int loop =0;loop < 5;loop++)
+                                {
+                                    input = IntCodeComputer(text,input,i);
+                                    input = IntCodeComputer(text,input,j);
+                                    input = IntCodeComputer(text,input,k);
+                                    input = IntCodeComputer(text,input,l);
+                                    input = IntCodeComputer(text,input,m);
+                                }
+                                if(maxAmplifierOutput < input)
+                                {
+                                    maxAmplifierOutput  = input;
+                                    ampSignal = phaseSettingSequence;
+                                }
                             }
                         }
                     }
