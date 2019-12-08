@@ -19,35 +19,24 @@ namespace day05
 
             for(int i =0; i<values.Count();)
             {
-                Console.WriteLine("------------");
                 if(values[i] == 99) 
                     break;
 
                 var paramModes = GetParamModes(values[i]);
                 var opcode = paramModes[0];
-                Console.WriteLine("opcode: " + opcode);
                 int firstValue=0, secondValue=0,thirdValue=0;
 
                 firstValue = values[i+1];
-                Console.WriteLine("firstValue: " + firstValue);
                 
                 if(opcode < 3)
                 {
                     secondValue = values[i+2];
-                Console.WriteLine("secondValue: " + secondValue);
                     thirdValue = values[i+3];
-                Console.WriteLine("thirdValue: " + thirdValue);
 
                     if(paramModes[1] == 0)
                     firstValue = values[firstValue];
                     if(paramModes[2] == 0)
-                    secondValue = values[secondValue];
-
-                    Console.WriteLine("firstValue: " + firstValue);
-                    Console.WriteLine("secondValue: " + secondValue);
-                    
-
-                
+                    secondValue = values[secondValue];  
                 }
                 
 
@@ -58,11 +47,13 @@ namespace day05
                 else if(opcode == 3)
                     values[firstValue] = id;
                 else if(opcode == 4)
-                    if(values[values[i+1]] != 0)
+                    {
+                        if(values[values[i+1]] != 0)
                         {
                             paramoutput = values[values[i+1]];
                             Console.WriteLine(i + ": " + paramoutput);
                         }
+                    }
                 else 
                     break;
                 
