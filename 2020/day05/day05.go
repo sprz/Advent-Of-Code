@@ -5,10 +5,36 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"math"
 )
 
 func part1()  { 
-    fmt.Println("part1: ",1);
+	var file = readFile();
+	var maxSeatId = 0;
+	var row = 0;
+	var col = 0;
+	for _, line := range file {
+		for i:=0;i<7;i++{
+			if string(line[i]) == "B"{
+				row += int(math.Pow(2,float64(7-i-1)))
+			}
+		}
+
+		for i:=0;i<3;i++{
+			if string(line[i+7]) == "B"{
+				col += int(math.Pow(2,float64(7-i-1)))
+			}
+		}
+		var seatId = row * 8 + col;
+		
+		if maxSeatId < seatId{
+			maxSeatId = seatId;
+			println("row:", row, ", col:", col)
+		}
+		row = 0;
+		col = 0;
+	}
+    fmt.Println("part1: ",maxSeatId);
 }
 
 func part2()  {
