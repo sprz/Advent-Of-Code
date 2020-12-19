@@ -9,9 +9,10 @@ namespace day09
         static void Main(string[] args)
         {
             var lines = File.ReadAllLines("data.txt").Select( x=> long.Parse(x)).ToList();
-            part1(lines);
+            var result = part1(lines);
+            part2(lines,result);
         }
-        static void part1(List<long> numbers)
+        static long part1(List<long> numbers)
         {
             var output = 0;
             for(int i=25;i<numbers.Count;i++)
@@ -22,8 +23,30 @@ namespace day09
                 if(preambles.Any( x=> preambles.Any( y=> y + x == number))) continue;
 
                 Console.WriteLine("part1: " + numbers[i]);
-                return;
+                return numbers[i];
             }
+
+            return -1;
+        }
+        static void part2(List<long> numbers, long part1Result)
+        {
+            var summedNumbers = new List<long>();
+            for(int i=numbers.IndexOf(part1Result);i>=0;i--)
+            {
+                summedNumbers.Add(numbers[i]);
+                var sum = summedNumbers.Sum();
+                if(summedNumbers.Count > 2 && sum == part1Result)
+                {
+                    Console.WriteLine("part2: " + (summedNumbers.Min() + summedNumbers.Max()));
+                    return;
+                }
+                else if (sum > part1Result)
+                    summedNumbers.RemoveAt(0);
+                
+               
+                
+            }
+
         }
     }
 }
